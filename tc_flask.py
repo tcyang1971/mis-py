@@ -10,6 +10,7 @@ def index():
     homepage += "<a href=/current>開啟網頁及顯示日期時間</a><br>"
     homepage += "<a href=/welcome?nick=tcyang>開啟網頁及傳送使用者暱稱</a><br>"
     homepage += "<a href=/hi>計算總拜訪次數</a><br>"
+    homepage += "<a href=/login>透過表單輸入名字傳值</a><br>"
     return homepage
 
 @app.route("/mis")
@@ -41,6 +42,14 @@ def hi():
     f.write(str(count))
     f.close()
     return "本網站總拜訪人次：" + str(count)
+
+@app.route("/login", methods=["POST","GET"])
+def login():
+    if request.method == "POST":
+        user = request.form["nm"]
+        return "您輸入的名字為：" + user 
+    else:
+        return render_template("login.html")
 
 if __name__ == "__main__":
     app.run()
