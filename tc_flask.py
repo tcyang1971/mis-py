@@ -11,6 +11,7 @@ def index():
     homepage += "<a href=/welcome?nick=tcyang>開啟網頁及傳送使用者暱稱</a><br>"
     homepage += "<a href=/hi>計算總拜訪次數</a><br>"
     homepage += "<a href=/login>透過表單輸入名字傳值</a><br>"
+    homepage += "<a href=/about>關於我(RWD響應式網頁)</a><br>"
     return homepage
 
 @app.route("/mis")
@@ -50,6 +51,10 @@ def login():
         return "您輸入的名字為：" + user 
     else:
         return render_template("login.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html") 
 
 if __name__ == "__main__":
     app.run()
