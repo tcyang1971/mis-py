@@ -1,4 +1,4 @@
-import mis
+import mis as m
 
-mis.mis2a()
-mis.mis2b()
+m.mis2a()
+m.mis2b()
